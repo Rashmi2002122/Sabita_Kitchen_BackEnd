@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/getmenu")
-@CrossOrigin(origins = "http://sabita-cloud-kitchen-frontend.onrender.com/")
+@CrossOrigin(origins = "https://sabita-cloud-kitchen-frontend.onrender.com/")
 public class MenuController {
 
 	@Autowired

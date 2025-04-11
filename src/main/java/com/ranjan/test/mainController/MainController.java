@@ -15,7 +15,7 @@ import com.ranjan.test.repository.UserRepository;
 import com.ranjan.test.services.UserServices;
 
 @RestController
-@CrossOrigin(origins = "http://sabita-cloud-kitchen-frontend.onrender.com/")
+@CrossOrigin(origins = "https://sabita-cloud-kitchen-frontend.onrender.com/")
 public class MainController {
 
 	@Autowired
