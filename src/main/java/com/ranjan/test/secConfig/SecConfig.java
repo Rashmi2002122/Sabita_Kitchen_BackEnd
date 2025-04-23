@@ -37,7 +37,10 @@ public class SecConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("https://sabita-cloud-kitchen-frontend.onrender.com/")); // ✅ Allow React frontend
+        configuration.setAllowedOrigins(List.of(
+                "https://sabita-cloud-kitchen-frontend.onrender.com", // ✅ Allow React frontend (Production)
+                "http://localhost:3000" // ✅ Allow local dev server
+        ));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true); // ✅ Allow authentication cookies
