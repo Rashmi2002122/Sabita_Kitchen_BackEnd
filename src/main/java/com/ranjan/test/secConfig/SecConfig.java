@@ -15,14 +15,14 @@ public class SecConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // ✅ Allow CORS
-                .csrf(csrf -> csrf.disable()) // ✅ Disable CSRF for API requests
+                .cors(cors -> cors.configurationSource(corsConfigurationSource())) 
+                .csrf(csrf -> csrf.disable()) 
                 .authorizeHttpRequests(auth -> auth
-                    .requestMatchers("/", "/login","/getmenu/**").permitAll() // Public endpoints
-                    .anyRequest().authenticated() // Protect other endpoints
+                    .requestMatchers("/", "/login","/getmenu/**").permitAll() 
+                    .anyRequest().authenticated() 
                 )
                 .oauth2Login(oauth2 -> oauth2 // Enable Google OAuth2
-                    .defaultSuccessUrl("https://sabita-cloud-kitchen-frontend.onrender.com/", true) // Redirect after login
+                    .defaultSuccessUrl("https://sabita-cloud-kitchen.onrender.com/", true) 
                 )
                 .exceptionHandling(exception -> exception
                     .authenticationEntryPoint((request, response, authException) -> {
@@ -38,12 +38,12 @@ public class SecConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(List.of(
-                "https://sabita-cloud-kitchen-frontend.onrender.com", // ✅ Allow React frontend (Production)
-                "http://localhost:3000" // ✅ Allow local dev server
+                "https://sabita-cloud-kitchen.onrender.com/", 
+                "http://localhost:3000" 
         ));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
         configuration.setAllowedHeaders(List.of("*"));
-        configuration.setAllowCredentials(true); // ✅ Allow authentication cookies
+        configuration.setAllowCredentials(true); 
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
