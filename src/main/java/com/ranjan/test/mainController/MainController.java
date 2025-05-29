@@ -15,7 +15,7 @@ import com.ranjan.test.repository.UserRepository;
 import com.ranjan.test.services.UserServices;
 
 @RestController
-@CrossOrigin(origins = {"https://cloud-kitchen-6803.onrender.com", "http://localhost:3000"})
+@CrossOrigin(origins = {"https://cloud-kitchen-oj31.onrender.com", "http://localhost:3000"})
 public class MainController {
 
 	@Autowired
